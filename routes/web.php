@@ -12,39 +12,46 @@
 */
 
 
+Route::get('downloadkeluar/{id}', 'KeluarController@download')->name('download.data.keluar');
 Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'role:administrator']], function() {
+    Route::put('updatestatuskasie/{id}', 'KeluarController@statuskasie')->name('status.kasie');
+    Route::get('download/{id}', 'MasukController@download')->name('download.data');
+    Route::get('view/datakeluar', 'KeluarController@viewdatakeluar')->name('viewdatakeluar');
+    Route::get('view/datamasuk', 'MasukController@viewdatamasuk')->name('viewdatamasuk');
 
     Route::get('/', function () {
 
         return view('admin.index');
     });
 
-    Route::resource('barang', 'BarangController');
-    Route::resource('bahan', 'BahanController');
-    Route::resource('returpenjualan', 'ReturPenjualanController');
-    Route::post('/prosesret', 'ProsesReturController@proses')->name('prosesret');
-    Route::get('/spb', 'ReturPenjualanController@spb')->name('spb');
-    Route::resource('spbproduksi', 'SpbProduksiController');
+    Route::resource('masuk', 'MasukController');
+    Route::resource('keluar', 'KeluarController');
+
 });
 
-Route::group(['prefix' => 'ppic', 'middleware' => ['auth', 'role:ppic']], function() {
+Route::group(['prefix' => 'lurah', 'middleware' => ['auth', 'role:lurah']], function() {
+    Route::get('viewlurah/{id}', 'KeluarController@viewlurah')->name('view.lurah');
 
     Route::get('/', function () {
-        return view('ppic.indux');
-    });
-    Route::put('/prosesret/process/{id}', 'ProsesReturController@prosesacc')->name('prosesretacc');
-    Route::put('/prosesret/decline/{id}', 'ProsesReturController@prosesdec')->name('prosesretdec');
-    Route::put('/prosesret/data/{id}', 'ProsesReturController@data')->name('data');
-    Route::get('/spk', 'ProsesReturController@spk')->name('spk');
-    Route::resource('prosesretur', 'ProsesReturController');
-    Route::resource('spkproduksi', 'SpkProduksiController');
+        $data = App\Keluar::all();
+
+        return view('lurah.index', compact('data'));
+    })->name('lurah.index');
+
 });
 
-Route::group(['prefix' => 'produksi', 'middleware' => ['auth', 'role:produksi']], function() {
+Route::group(['prefix' => 'kasie', 'middleware' => ['auth', 'role:kasie']], function() {
+    // Route::get('view/datakeluarkasie', 'KeluarController@viewdatakeluarkasie')->name('viewdatakeluar.kasie');
+    // Route::resource('keluar', 'KeluarController');
+    Route::put('updatestatuslurah/{id}', 'KeluarController@statuslurah')->name('status.lurah');
+
+    Route::get('viewkasie/{id}', 'KeluarController@viewkasie')->name('view.kasie');
 
     Route::get('/', function () {
-        return view('produksis.index');
-    });
+        $data = App\Keluar::all();
+
+        return view('kasie.index', compact('data'));
+    })->name('kasie.index');
     Route::get('/spbspk', 'SpbSpkController@all')->name('spbspk');
 });
 

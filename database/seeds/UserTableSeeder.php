@@ -19,15 +19,15 @@ class UserTableSeeder extends Seeder
         ]);
 
         App\User::create([
-            'name' => 'ppic',
-            'username' => 'ppic',
+            'name' => 'kasie',
+            'username' => 'kasie',
             'password' => 'user',
             'role_id' => 2
         ]);
 
         App\User::create([
-            'name' => 'produksi',
-            'username' => 'produksi',
+            'name' => 'lurah',
+            'username' => 'lurah',
             'password' => 'user',
             'role_id' => 3
         ]);

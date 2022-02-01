@@ -17,7 +17,7 @@
                     <!-- Logo text -->
                     <span>
                      <!-- dark Logo text -->
-                     <img src="{{ asset('images/pmu.jpg') }}" height="60%" width="60%" alt="homepage" class="dark-logo" />
+                     <img src="{{ asset('images/tng.jpeg') }}" height="20%" width="20%" alt="homepage" class="dark-logo" />
                      {{-- <span style="font-size: 13px; font-weight: bold">PT Sagita Indo Kreasi</span> --}}
                      <!-- Light Logo text -->
                      <img src="{{ asset('images/logo-light-text.png') }}" class="light-logo" alt="homepage" /></span> </a>
@@ -84,9 +84,9 @@
                                     <li><a href="  "><i class="ti-wallet"></i> Add Account</a></li>
                                 @endif --}}
                                 {{-- <li><a href="#"><i class="ti-email"></i></a></li> --}}
-                                <li role="separator" class="divider"></li>
+                                {{-- <li role="separator" class="divider"></li> --}}
                                 {{-- <li><a href="#"><i class="ti-settings"></i> Account Setting</a></li> --}}
-                                <li>
+                                {{-- <li>
 
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                     onclick="event.preventDefault();
@@ -94,7 +94,7 @@
                                         {{ __('Logout') }}
                                     </a>
 
-                                </li>
+                                </li> --}}
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf
                                     </form>

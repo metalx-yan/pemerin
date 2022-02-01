@@ -1,0 +1,18 @@
+--- Data KUR
+select a.*, f.account_open_date, h.region_cd,
+case
+	when g.cif is not null then 'Y'
+	else 'N'
+end as status_mobile,
+f.bni_cur_book_bal_idr as saldo_posisi_202111, --update
+f.avg_book_bal_idr as saldo_avg_202111,			-- update
+case
+	when e.prd_name is not null then e.prd_name
+	when f.product_name is not null then f.product_name
+end as nama_produk
+from [dbo].[Data_KUR_202111] a		--update
+left join debit.dbo.deposit_prod_11_2021 f on a.norek = f.id_number		--update
+left join [192.168.98.158].funding.dbo.KODE_CABANG_UPDATE h on f.BRANCH_CODE=h.BRANCH_CODE
+left join datamart.dbo.prm_grouping_produk_2 e on f.bni_account_type = e.bni_account_type and f.bni_sub_category = e.bni_sub_category
+left join (select * from [192.168.98.159].db_mobile.dbo.user_mobile_banking_202111		-- update
+		where isnumeric(cif) = 1) g on f.BNI_CIF_KEY= g.cif
