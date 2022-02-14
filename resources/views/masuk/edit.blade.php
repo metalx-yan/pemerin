@@ -25,7 +25,7 @@
                 @method('PUT')
                 <div class="row">
                     <div class="col-md-6">
-                        <label for="">No. Asal</label>
+                        <label for="">No. Surat</label>
                         <input type="text" name="asal" class="form-control {{ $errors->has('asal') ? 'is-invalid' : ''}}" value="{{ $get->nomor }}" required>
                         {!! $errors->first('asal', '<span class="invalid-feedback">:message</span>') !!}
                     </div>

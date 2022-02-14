@@ -24,7 +24,7 @@
                 @csrf
                 <div class="row">
                     <div class="col-md-6">
-                        <label for="">No. Asal</label>
+                        <label for="">No. Surat Keluar</label>
                         <input type="text" name="asal" class="form-control {{ $errors->has('asal') ? 'is-invalid' : ''}}" required>
                         {!! $errors->first('asal', '<span class="invalid-feedback">:message</span>') !!}
                     </div>
@@ -37,7 +37,7 @@
                 </div>
                 <div class="row">
                     <div class="col-md-12">
-                        <label for="">Pengirim</label>
+                        <label for="">Tujuan Surat</label>
                         <input type="text" name="pengirim" class="form-control {{ $errors->has('pengirim') ? 'is-invalid' : ''}}" required>
                         {!! $errors->first('pengirim', '<span class="invalid-feedback">:message</span>') !!}
                     </div>
