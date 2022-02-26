@@ -31,6 +31,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'role:administrator'
 
 Route::group(['prefix' => 'lurah', 'middleware' => ['auth', 'role:lurah']], function() {
     Route::get('viewlurah/{id}', 'KeluarController@viewlurah')->name('view.lurah');
+    Route::put('updatestatusadmin/{id}', 'KeluarController@statusadmin')->name('status.admin');
 
     Route::get('/', function () {
         $data = App\Keluar::all();

@@ -21,8 +21,7 @@
             $no = 1;
         @endphp
         <div class="card-body">
-            <a href="{{ route('keluar.create') }}" class="btn btn-primary btn-sm">Buat Surat Keluar</a>
-            <br>
+            <!-- <a href="{{ route('keluar.create') }}" class="btn btn-primary btn-sm">Buat Surat Keluar</a> -->
             <br>
             <table class="table border" id="myTable" style="font-size: 10px;">
                 <thead>
@@ -39,34 +38,60 @@
                 </thead>
                 <tbody>
                     @foreach ($data as $item)
-                        <tr>
-                            <td>{{ $no++ }}</td>
-                            <td>{{ $item->tanggal }}</td>
-                            <td>{{ $item->nomor }}</td>
-                            <td>{{ $item->tanggal }}</td>
-                            <td>{{ $item->nomor }}</td>
-                            <td>{{ $item->perihal }}</td>
-                            <td>
-                                    @if ($item->status == 1)
-                                    <form action="{{ route('status.lurah', $item->id) }}" method="post">
-                                        @csrf
-                                        @method('PUT')
-                                        <input type="hidden" name="status" value="2">
-                                        <button type="submit" class="btn btn-primary btn-sm" style="width:100px;">Kirim ke lurah</button>
-                                    </form>
+                        @if ($item->status == 1)
+                            <tr>
+                                <td>{{ $no++ }}</td>
+                                <td>{{ $item->tanggal }}</td>
+                                <td>{{ $item->nomor }}</td>
+                                <td>{{ $item->tanggal }}</td>
+                                <td>{{ $item->nomor }}</td>
+                                <td>{{ $item->perihal }}</td>
+                                <td>
+                                        <form action="{{ route('status.lurah', $item->id) }}" method="post">
+                                            @csrf
+                                            @method('PUT')
+                                            <input type="hidden" name="status" value="2">
+                                            <button type="submit" class="btn btn-primary btn-sm" style="width:100px;">Kirim ke lurah</button>
+                                        </form>
 
-                                    @else
-                                    <span class="badge badge-success">Terkirim ke lurah</span>
-                                    @endif
-                            </td>
-                            <td>
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <a href="{{ route('view.kasie', $item->id ) }}" class="btn btn-secondary btn-sm">View</a>
+                                </td>
+                                <td>
+                                    <div class="row">
+                                        <div class="col-xs-6">
+                                            <a href="{{ route('view.kasie', $item->id ) }}" class="btn btn-secondary btn-sm">View</a>
+                                        </div>
+                                        <div class="col-xs-6">
+                                            <form action="{{ route('status.lurah', $item->id) }}" method="post">
+                                                @csrf
+                                                @method('PUT')
+                                                <input type="hidden" name="status" value="0">
+                                                <button type="submit" class="btn btn-danger btn-sm" style="width:70px;">Decline</button>
+                                            </form>
+                                        </div>
                                     </div>
-                                </div>
-                            </td>
-                        </tr>
+                                </td>
+                            </tr>
+                       @elseif($item->status == 2)
+                       <tr>
+                                <td>{{ $no++ }}</td>
+                                <td>{{ $item->tanggal }}</td>
+                                <td>{{ $item->nomor }}</td>
+                                <td>{{ $item->tanggal }}</td>
+                                <td>{{ $item->nomor }}</td>
+                                <td>{{ $item->perihal }}</td>
+                                <td>
+                                    <span class="badge badge-success">Terkirim ke lurah</span>
+                                </td>
+                                <td>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <a href="{{ route('view.kasie', $item->id ) }}" class="btn btn-secondary btn-sm">View</a>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>     
+                        @else
+                        @endif
                     @endforeach
                 </tbody>
             </table>

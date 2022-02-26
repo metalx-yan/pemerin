@@ -37,27 +37,65 @@
                 </thead>
                 <tbody>
                     @foreach ($data as $item)
-                        <tr>
-                            <td>{{ $no++ }}</td>
-                            <td>{{ $item->tanggal }}</td>
-                            <td>{{ $item->nomor }}</td>
-                            <td>{{ $item->tanggal }}</td>
-                            <td>{{ $item->nomor }}</td>
-                            <td>{{ $item->perihal }}</td>
-                            <td>
-                                    @if ($item->status == 2)
+                    @if ($item->status == 2)
+                    <tr>
+                        <td>{{ $no++ }}</td>
+                        <td>{{ $item->tanggal }}</td>
+                        <td>{{ $item->nomor }}</td>
+                        <td>{{ $item->tanggal }}</td>
+                        <td>{{ $item->nomor }}</td>
+                        <td>{{ $item->perihal }}</td>
+                        <td>
 
-                                    <span class="badge badge-success">Data approve kasie</span>
-                                    @endif
-                            </td>
-                            <td>
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <a href="{{ route('view.lurah', $item->id ) }}" class="btn btn-secondary btn-sm">View</a>
-                                    </div>
+                                <!-- <span class="badge badge-success">Data approve kasie</span> -->
+                                <form action="{{ route('status.admin', $item->id) }}" method="post">
+                                    @csrf
+                                    @method('PUT')
+                                    <input type="hidden" name="status" value="3">
+                                    <button type="submit" class="btn btn-primary btn-sm" style="width:100px;">Kirim ke admin</button>
+                                </form>
+                        </td>
+                        <td>
+                            <div class="row">
+                                <div class="col-xs-6">
+                                    <a href="{{ route('view.lurah', $item->id ) }}" class="btn btn-secondary btn-sm">View</a>
                                 </div>
-                            </td>
-                        </tr>
+                                <div class="col-xs-6">
+                                    <form action="{{ route('status.admin', $item->id) }}" method="post">
+                                        @csrf
+                                        @method('PUT')
+                                        <input type="hidden" name="status" value="0">
+                                        <button type="submit" class="btn btn-danger btn-sm" style="width:70px;">Decline</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    @elseif($item->status == 3)
+                    <tr>
+                        <td>{{ $no++ }}</td>
+                        <td>{{ $item->tanggal }}</td>
+                        <td>{{ $item->nomor }}</td>
+                        <td>{{ $item->tanggal }}</td>
+                        <td>{{ $item->nomor }}</td>
+                        <td>{{ $item->perihal }}</td>
+                        <td>
+
+                                <span class="badge badge-success">Terkirim ke admin</span>
+                               
+                        </td>
+                        <td>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <a href="{{ route('view.lurah', $item->id ) }}" class="btn btn-secondary btn-sm">View</a>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    @else
+                    
+                    @endif
+
                     @endforeach
                 </tbody>
             </table>

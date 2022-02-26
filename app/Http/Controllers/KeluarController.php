@@ -163,6 +163,7 @@ class KeluarController extends Controller
 
     public function statuskasie(Request $request, $id)
     {
+        // dd($id);
         $update = Keluar::find($id);
         $update->status = $request->status;
         $update->save();
@@ -171,6 +172,16 @@ class KeluarController extends Controller
     }
 
     public function statuslurah(Request $request, $id)
+    {
+        // dd($request->all());
+        $update = Keluar::find($id);
+        $update->status = $request->status;
+        $update->save();
+
+        return redirect()->route('keluar.index');
+    }
+
+    public function statusadmin(Request $request, $id)
     {
         // dd($request->all());
         $update = Keluar::find($id);
