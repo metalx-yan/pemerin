@@ -28,7 +28,7 @@
                         <th>No</th>
                         <th>Tanggal</th>
                         <th>Nomor</th>
-                        <th>Tanggal Surat</th>
+                        <th>Tujuan Surat</th>
                         <th>Nomor Surat</th>
                         <th>Perihal</th>
                         <th>Status</th>
@@ -42,7 +42,7 @@
                         <td>{{ $no++ }}</td>
                         <td>{{ $item->tanggal }}</td>
                         <td>{{ $item->nomor }}</td>
-                        <td>{{ $item->tanggal }}</td>
+                        <td>{{ $item->pengirim }}</td>
                         <td>{{ $item->nomor }}</td>
                         <td>{{ $item->perihal }}</td>
                         <td>
@@ -64,7 +64,7 @@
                                     <form action="{{ route('status.admin', $item->id) }}" method="post">
                                         @csrf
                                         @method('PUT')
-                                        <input type="hidden" name="status" value="0">
+                                        <input type="hidden" name="status" value="5">
                                         <button type="submit" class="btn btn-danger btn-sm" style="width:70px;">Decline</button>
                                     </form>
                                 </div>
@@ -76,7 +76,7 @@
                         <td>{{ $no++ }}</td>
                         <td>{{ $item->tanggal }}</td>
                         <td>{{ $item->nomor }}</td>
-                        <td>{{ $item->tanggal }}</td>
+                        <td>{{ $item->pengirim }}</td>
                         <td>{{ $item->nomor }}</td>
                         <td>{{ $item->perihal }}</td>
                         <td>

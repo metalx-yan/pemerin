@@ -47,7 +47,6 @@
                                     @if ($item->status == 0)
                                     <span class="badge badge-warning">Process</span>
 
-
                                     @else
                                     <span class="badge badge-success">Success</span>
                                     @endif

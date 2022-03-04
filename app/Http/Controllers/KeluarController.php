@@ -197,6 +197,18 @@ class KeluarController extends Controller
         return view('keluar.viewdatakeluar', compact('data'));
     }
 
+    public function viewdatakeluarlurah()
+    {
+        $data = Keluar::all();
+        return view('lurah.viewdatakeluar', compact('data'));
+    }
+
+    public function viewdatakeluarkasie()
+    {
+        $data = Keluar::all();
+        return view('kasie.viewdatakeluar', compact('data'));
+    }
+
     public function viewkasie($id)
     {
         $get = Keluar::find($id);
@@ -204,10 +216,4 @@ class KeluarController extends Controller
         return view('kasie.view',compact('get'));
     }
 
-    public function viewlurah($id)
-    {
-        $get = Keluar::find($id);
-
-        return view('lurah.view',compact('get'));
-    }
 }

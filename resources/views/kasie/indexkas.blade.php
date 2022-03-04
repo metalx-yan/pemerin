@@ -21,25 +21,24 @@
             $no = 1;
         @endphp
         <div class="card-body">
-            <a href="{{ route('masuk.create') }}" class="btn btn-primary btn-sm">Buat Surat Masuk</a>
             <br>
             <br>
             <table class="table border" id="myTable" style="font-size: 10px;">
                 <thead>
                     <tr>
                         <th>No</th>
-                        <th>Tanggal Surat</th>
-                        <th>Nomor Surat</th>
+                        <th>Tanggal</th>
+                        <th>Nomor</th>
                         <th>Tujuan Surat</th>
                         <th>Perihal</th>
                         <th>Kategori Surat</th>
                         <th>Status</th>
-                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach ($data as $item)
-                    @if($item->status == 1)
+                    @if($item->status == 3)
+                        
                         <tr>
                             <td>{{ $no++ }}</td>
                             <td>{{ $item->tanggal }}</td>
@@ -48,73 +47,8 @@
                             <td>{{ $item->perihal }}</td>
                             <td>{{ $item->kategori }}</td>
                             <td>
-                                <span class="badge badge-success">Terkirim ke lurah</span>
-                            </td>
-                            <td>
-                                <div class="row">
-                                    <div class="col-md-3">
-                                        <a href="{{ route('masuk.show', $item->id ) }}" class="btn btn-secondary btn-sm">View</a>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <a href="{{ route('masuk.edit', $item->id ) }}" class="btn btn-warning btn-sm">Edit</a>
-                                    </div>
-                                    <div class="col-md-2">
-                                        <form action="{{ route('masuk.destroy', $item->id) }}" method="post">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to Remove?');">Delete</button>
-                                        </form>
-                                    </div>
-                                </div>
-                            </td>
-                        </tr>
-                    @elseif($item->status == 0)
-                    <tr>
-                            <td>{{ $no++ }}</td>
-                            <td>{{ $item->tanggal }}</td>
-                            <td>{{ $item->nomor }}</td>
-                            <td>{{ $item->pengirim }}</td>
-                            <td>{{ $item->perihal }}</td>
-                            <td>{{ $item->kategori }}</td>
-                            <td>
-                                    <form action="{{ route('status.kasiemasuk', $item->id) }}" method="post">
-                                        @csrf
-                                        @method('PUT')
-                                        <input type="hidden" name="status" value="1">
-                                        <button type="submit" class="btn btn-primary btn-sm" style="width:100px;">Kirim ke lurah</button>
-                                    </form>
-                            </td>
-                            <td>
-                                <div class="row">
-                                    <div class="col-md-3">
-                                        <a href="{{ route('masuk.show', $item->id ) }}" class="btn btn-secondary btn-sm">View</a>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <a href="{{ route('masuk.edit', $item->id ) }}" class="btn btn-warning btn-sm">Edit</a>
-                                    </div>
-                                    <div class="col-md-2">
-                                        <form action="{{ route('masuk.destroy', $item->id) }}" method="post">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to Remove?');">Delete</button>
-                                        </form>
-                                    </div>
-                                </div>
-                            </td>
-                        </tr>
-                    @elseif($item->status == 3)
-                    <tr>
-                            <td>{{ $no++ }}</td>
-                            <td>{{ $item->tanggal }}</td>
-                            <td>{{ $item->nomor }}</td>
-                            <td>{{ $item->pengirim }}</td>
-                            <td>{{ $item->perihal }}</td>
-                            <td>{{ $item->kategori }}</td>
-                            <td>
-                                <span class="badge badge-success">Acc kasie</span>
+                                <span class="badge badge-success">Terkirim ke admin</span>
                                     
-                            </td>
-                            <td>
                                 <!-- <div class="row">
                                     <div class="col-md-3">
                                         <a href="{{ route('masuk.show', $item->id ) }}" class="btn btn-secondary btn-sm">View</a>
@@ -132,7 +66,39 @@
                                 </div> -->
                             </td>
                         </tr>
-                    @endif
+                        @elseif($item->status == 2)
+                        <tr>
+                            <td>{{ $no++ }}</td>
+                            <td>{{ $item->tanggal }}</td>
+                            <td>{{ $item->nomor }}</td>
+                            <td>{{ $item->pengirim }}</td>
+                            <td>{{ $item->perihal }}</td>
+                            <td>{{ $item->kategori }}</td>
+                            <td>
+                                    <form action="{{ route('status.kasiemasuk', $item->id) }}" method="post">
+                                        @csrf
+                                        @method('PUT')
+                                        <input type="hidden" name="status" value="3">
+                                        <button type="submit" class="btn btn-primary btn-sm" style="width:100px;">Kirim ke admin</button>
+                                    </form>
+                                <!-- <div class="row">
+                                    <div class="col-md-3">
+                                        <a href="{{ route('masuk.show', $item->id ) }}" class="btn btn-secondary btn-sm">View</a>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <a href="{{ route('masuk.edit', $item->id ) }}" class="btn btn-warning btn-sm">Edit</a>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <form action="{{ route('masuk.destroy', $item->id) }}" method="post">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to Remove?');">Delete</button>
+                                        </form>
+                                    </div>
+                                </div> -->
+                            </td>
+                        </tr>
+                        @endif
                     @endforeach
                 </tbody>
             </table>

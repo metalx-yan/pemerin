@@ -169,4 +169,40 @@ class MasukController extends Controller
         $data = Masuk::all();
         return view('masuk.viewdatamasuk', compact('data'));
     }
+
+    public function viewdatamasukkasie()
+    {
+        $data = Masuk::all();
+        return view('kasie.viewdatamasuk', compact('data'));
+    }
+
+    public function viewdatamasuklurah()
+    {
+        $data = Masuk::all();
+        return view('lurah.viewdatamasuk', compact('data'));
+    }
+
+    public function masukkasie()
+    {
+        $data = Masuk::all();
+        // dd($data);
+        return view('kasie.indexkas', compact('data'));
+    }
+
+    public function masuklurah()
+    {
+        $data = Masuk::all();
+        // dd($data);
+        return view('lurah.indexkas', compact('data'));
+    }
+
+    public function statuskasiemasuk(Request $request, $id)
+    {
+        // dd($id);
+        $update = Masuk::find($id);
+        $update->status = $request->status;
+        $update->save();
+
+        return redirect()->route('masuk.index');
+    }
 }
