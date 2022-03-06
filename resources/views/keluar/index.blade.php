@@ -124,7 +124,21 @@
                                     <span class="badge badge-success">Disetujui oleh lurah</span>
                             </td>
                             <td>
-                                
+                            <div class="row">
+                                    <div class="col-md-3">
+                                        <a href="{{ route('keluar.show', $item->id ) }}" class="btn btn-secondary btn-sm">View</a>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <a href="{{ route('keluar.edit', $item->id ) }}" class="btn btn-warning btn-sm">Edit</a>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <form action="{{ route('keluar.destroy', $item->id) }}" method="post">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to Remove?');">Delete</button>
+                                        </form>
+                                    </div>
+                                </div>
                             </td>
                         </tr>
                         @elseif($item->status == 4)

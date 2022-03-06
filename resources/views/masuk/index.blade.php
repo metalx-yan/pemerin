@@ -121,7 +121,7 @@
                                     
                             </td>
                             <td>
-                                <!-- <div class="row">
+                                <div class="row">
                                     <div class="col-md-3">
                                         <a href="{{ route('masuk.show', $item->id ) }}" class="btn btn-secondary btn-sm">View</a>
                                     </div>
@@ -135,7 +135,7 @@
                                             <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to Remove?');">Delete</button>
                                         </form>
                                     </div>
-                                </div> -->
+                                </div>
                             </td>
                         </tr>
                     @endif
