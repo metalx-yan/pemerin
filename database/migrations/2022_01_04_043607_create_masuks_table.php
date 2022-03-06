@@ -25,6 +25,8 @@ class CreateMasuksTable extends Migration
             $table->string('perihal_disposisi');
             $table->string('tujuan');
             $table->string('lampiran');
+            $table->string('status')->nullable();
+            $table->string('keterangan_status')->nullable();
             $table->timestamps();
         });
     }

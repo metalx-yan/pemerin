@@ -22,7 +22,8 @@ class CreateKeluarsTable extends Migration
             $table->string('kategori');
             $table->string('keterangan');
             $table->string('lampiran');
-            $table->string('status');
+            $table->string('status')->nullable();
+            $table->string('keterangan_status')->nullable();
             $table->timestamps();
         });
     }

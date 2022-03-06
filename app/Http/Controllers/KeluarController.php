@@ -166,6 +166,7 @@ class KeluarController extends Controller
         // dd($id);
         $update = Keluar::find($id);
         $update->status = $request->status;
+        $update->keterangan_status = $request->keterangan_status;
         $update->save();
 
         return redirect()->route('keluar.index');
@@ -176,6 +177,7 @@ class KeluarController extends Controller
         // dd($request->all());
         $update = Keluar::find($id);
         $update->status = $request->status;
+        $update->keterangan_status = $request->keterangan_status;
         $update->save();
 
         return redirect()->route('keluar.index');
@@ -186,6 +188,7 @@ class KeluarController extends Controller
         // dd($request->all());
         $update = Keluar::find($id);
         $update->status = $request->status;
+        $update->keterangan_status = $request->keterangan_status;
         $update->save();
 
         return redirect()->route('keluar.index');
@@ -214,6 +217,13 @@ class KeluarController extends Controller
         $get = Keluar::find($id);
 
         return view('kasie.view',compact('get'));
+    }
+
+    public function viewlurah($id)
+    {
+        $get = Keluar::find($id);
+
+        return view('lurah.view',compact('get'));
     }
 
 }

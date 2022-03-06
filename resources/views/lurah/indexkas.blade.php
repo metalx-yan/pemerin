@@ -79,6 +79,7 @@
                                         @csrf
                                         @method('PUT')
                                         <input type="hidden" name="status" value="2">
+                                        <input type="text" name="keterangan_status" class="form-control form-control-sm" placeholder="Keterangan Status">
                                         <button type="submit" class="btn btn-primary btn-sm" style="width:100px;">Kirim ke kasie</button>
                                     </form>
                                 <!-- <div class="row">

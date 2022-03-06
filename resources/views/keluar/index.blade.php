@@ -33,6 +33,7 @@
                         <th>Tujuan Surat</th>
                         <th>Perihal</th>
                         <th>Kategori Surat</th>
+                        <th>Keterangan Status</th>
                         <th>Status</th>
                         <th>Action</th>
                     </tr>
@@ -48,11 +49,13 @@
                             <td>{{ $item->tanggal }}</td>
                             <td>{{ $item->nomor }}</td>
                             <td>{{ $item->perihal }}</td>
+                            <td>{{ $item->keterangan_status }}</td>
                             <td>
                                     <form action="{{ route('status.kasie', $item->id) }}" method="post">
                                         @csrf
                                         @method('PUT')
                                         <input type="hidden" name="status" value="1">
+                                        
                                         <button type="submit" class="btn btn-primary btn-sm" style="width:100px;">Kirim ke kasie</button>
                                     </form>
 
@@ -84,6 +87,8 @@
                             <td>{{ $item->tanggal }}</td>
                             <td>{{ $item->nomor }}</td>
                             <td>{{ $item->perihal }}</td>
+                            <td>{{ $item->keterangan_status }}</td>
+
                             <td>
                                     <span class="badge badge-success">Terkirim ke kasie</span>
                             </td>
@@ -113,25 +118,13 @@
                             <td>{{ $item->tanggal }}</td>
                             <td>{{ $item->nomor }}</td>
                             <td>{{ $item->perihal }}</td>
+                            <td>{{ $item->keterangan_status }}</td>
+
                             <td>
                                     <span class="badge badge-success">Disetujui oleh lurah</span>
                             </td>
                             <td>
-                                <div class="row">
-                                    <div class="col-md-3">
-                                        <a href="{{ route('keluar.show', $item->id ) }}" class="btn btn-secondary btn-sm">View</a>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <a href="{{ route('keluar.edit', $item->id ) }}" class="btn btn-warning btn-sm">Edit</a>
-                                    </div>
-                                    <div class="col-md-2">
-                                        <form action="{{ route('keluar.destroy', $item->id) }}" method="post">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to Remove?');">Delete</button>
-                                        </form>
-                                    </div>
-                                </div>
+                                
                             </td>
                         </tr>
                         @elseif($item->status == 4)
@@ -142,6 +135,8 @@
                             <td>{{ $item->tanggal }}</td>
                             <td>{{ $item->nomor }}</td>
                             <td>{{ $item->perihal }}</td>
+                            <td>{{ $item->keterangan_status }}</td>
+
                             <td>
                                     <span class="badge badge-danger">Ditolak oleh kasie</span>
                             </td>
@@ -171,6 +166,8 @@
                             <td>{{ $item->tanggal }}</td>
                             <td>{{ $item->nomor }}</td>
                             <td>{{ $item->perihal }}</td>
+                            <td>{{ $item->keterangan_status }}</td>
+
                             <td>
                                     <span class="badge badge-danger">Ditolak oleh lurah</span>
                             </td>

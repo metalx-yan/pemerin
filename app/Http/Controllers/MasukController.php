@@ -201,6 +201,7 @@ class MasukController extends Controller
         // dd($id);
         $update = Masuk::find($id);
         $update->status = $request->status;
+        $update->keterangan_status = $request->keterangan_status;
         $update->save();
 
         return redirect()->route('masuk.index');
