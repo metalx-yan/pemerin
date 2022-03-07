@@ -26,12 +26,13 @@
             <table class="table border" id="myTable" style="font-size: 10px;">
                 <thead>
                     <tr>
-                        <th>No</th>
-                        <th>Tanggal</th>
-                        <th>Nomor</th>
-                        <th>Tujuan Surat</th>
+                    <th>No</th>
+                        <th>Tanggal Surat</th>
                         <th>Nomor Surat</th>
+                        <th>Tujuan Surat</th>
                         <th>Perihal</th>
+                        <th>Kategori Surat</th>
+                        <th>Keterangan Status</th>
                         <th>Status</th>
                         <th>Action</th>
                     </tr>
@@ -40,12 +41,13 @@
                     @foreach ($data as $item)
                         @if ($item->status == 1)
                             <tr>
-                                <td>{{ $no++ }}</td>
-                                <td>{{ $item->tanggal }}</td>
-                                <td>{{ $item->nomor }}</td>
-                                <td>{{ $item->pengirim }}</td>
-                                <td>{{ $item->nomor }}</td>
-                                <td>{{ $item->perihal }}</td>
+                            <td>{{ $no++ }}</td>
+                            <td>{{ $item->tanggal }}</td>
+                            <td>{{ $item->nomor }}</td>
+                            <td>{{ $item->pengirim }}</td>
+                            <td>{{ $item->perihal }}</td>
+                            <td>{{ $item->kategori }}</td>
+                            <td>{{ $item->keterangan_status }}</td>
                                 <td>
                                         <form action="{{ route('status.lurah', $item->id) }}" method="post">
                                             @csrf
@@ -77,12 +79,13 @@
                             </tr>
                        @elseif($item->status == 2)
                        <tr>
-                                <td>{{ $no++ }}</td>
-                                <td>{{ $item->tanggal }}</td>
-                                <td>{{ $item->nomor }}</td>
-                                <td>{{ $item->pengirim }}</td>
-                                <td>{{ $item->nomor }}</td>
-                                <td>{{ $item->perihal }}</td>
+                            <td>{{ $no++ }}</td>
+                            <td>{{ $item->tanggal }}</td>
+                            <td>{{ $item->nomor }}</td>
+                            <td>{{ $item->pengirim }}</td>
+                            <td>{{ $item->perihal }}</td>
+                            <td>{{ $item->kategori }}</td>
+                            <td>{{ $item->keterangan_status }}</td>
                                 <td>
                                     <span class="badge badge-success">Terkirim ke lurah</span>
                                 </td>

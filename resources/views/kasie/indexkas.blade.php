@@ -29,10 +29,12 @@
                         <th>No</th>
                         <th>Tanggal</th>
                         <th>Nomor</th>
-                        <th>Tujuan Surat</th>
+                        <th>Pengirim Surat</th>
                         <th>Perihal</th>
                         <th>Kategori Surat</th>
+                        <th>Keterangan Status</th>
                         <th>Status</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -43,9 +45,10 @@
                             <td>{{ $no++ }}</td>
                             <td>{{ $item->tanggal }}</td>
                             <td>{{ $item->nomor }}</td>
-                            <td>{{ $item->pengirim }}</td>
+                            <td>{{ $item->tanggal }}</td>
+                            <td>{{ $item->nomor }}</td>
                             <td>{{ $item->perihal }}</td>
-                            <td>{{ $item->kategori }}</td>
+                            <td>{{ $item->keterangan_status }}</td>
                             <td>
                                 <span class="badge badge-success">Terkirim ke admin</span>
                                     
@@ -71,9 +74,10 @@
                             <td>{{ $no++ }}</td>
                             <td>{{ $item->tanggal }}</td>
                             <td>{{ $item->nomor }}</td>
-                            <td>{{ $item->pengirim }}</td>
+                            <td>{{ $item->tanggal }}</td>
+                            <td>{{ $item->nomor }}</td>
                             <td>{{ $item->perihal }}</td>
-                            <td>{{ $item->kategori }}</td>
+                            <td>{{ $item->keterangan_status }}</td>
                             <td>
                                     <form action="{{ route('status.kasiemasuk', $item->id) }}" method="post">
                                         @csrf

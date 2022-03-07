@@ -30,7 +30,7 @@
                         <th>No</th>
                         <th>Tanggal Surat</th>
                         <th>Nomor Surat</th>
-                        <th>Tujuan Surat</th>
+                        <th>Pengirim Surat</th>
                         <th>Perihal</th>
                         <th>Kategori Surat</th>
                         <th>Keterangan Status</th>
