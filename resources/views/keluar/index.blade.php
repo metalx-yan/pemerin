@@ -46,9 +46,9 @@
                             <td>{{ $no++ }}</td>
                             <td>{{ $item->tanggal }}</td>
                             <td>{{ $item->nomor }}</td>
-                            <td>{{ $item->tanggal }}</td>
-                            <td>{{ $item->nomor }}</td>
+                            <td>{{ $item->pengirim }}</td>
                             <td>{{ $item->perihal }}</td>
+                            <td>{{ $item->kategori }}</td>
                             <td>{{ $item->keterangan_status }}</td>
                             <td>
                                     <form action="{{ route('status.kasie', $item->id) }}" method="post">
@@ -66,9 +66,11 @@
                                     <div class="col-md-3">
                                         <a href="{{ route('keluar.show', $item->id ) }}" class="btn btn-secondary btn-sm">View</a>
                                     </div>
+                                    <div class="col-md-1"></div>
                                     <div class="col-md-3">
                                         <a href="{{ route('keluar.edit', $item->id ) }}" class="btn btn-warning btn-sm">Edit</a>
                                     </div>
+                                    <div class="col-md-1"></div>
                                     <div class="col-md-2">
                                         <form action="{{ route('keluar.destroy', $item->id) }}" method="post">
                                             @csrf
@@ -84,9 +86,9 @@
                             <td>{{ $no++ }}</td>
                             <td>{{ $item->tanggal }}</td>
                             <td>{{ $item->nomor }}</td>
-                            <td>{{ $item->tanggal }}</td>
-                            <td>{{ $item->nomor }}</td>
+                            <td>{{ $item->pengirim }}</td>
                             <td>{{ $item->perihal }}</td>
+                            <td>{{ $item->kategori }}</td>
                             <td>{{ $item->keterangan_status }}</td>
 
                             <td>
@@ -97,9 +99,11 @@
                                     <div class="col-md-3">
                                         <a href="{{ route('keluar.show', $item->id ) }}" class="btn btn-secondary btn-sm">View</a>
                                     </div>
+                                    <div class="col-md-1"></div>
                                     <div class="col-md-3">
                                         <a href="{{ route('keluar.edit', $item->id ) }}" class="btn btn-warning btn-sm">Edit</a>
                                     </div>
+                                    <div class="col-md-1"></div>
                                     <div class="col-md-2">
                                         <form action="{{ route('keluar.destroy', $item->id) }}" method="post">
                                             @csrf
@@ -115,9 +119,9 @@
                             <td>{{ $no++ }}</td>
                             <td>{{ $item->tanggal }}</td>
                             <td>{{ $item->nomor }}</td>
-                            <td>{{ $item->tanggal }}</td>
-                            <td>{{ $item->nomor }}</td>
+                            <td>{{ $item->pengirim }}</td>
                             <td>{{ $item->perihal }}</td>
+                            <td>{{ $item->kategori }}</td>
                             <td>{{ $item->keterangan_status }}</td>
 
                             <td>
@@ -128,9 +132,11 @@
                                     <div class="col-md-3">
                                         <a href="{{ route('keluar.show', $item->id ) }}" class="btn btn-secondary btn-sm">View</a>
                                     </div>
+                                    <div class="col-md-1"></div>
                                     <div class="col-md-3">
                                         <a href="{{ route('keluar.edit', $item->id ) }}" class="btn btn-warning btn-sm">Edit</a>
                                     </div>
+                                    <div class="col-md-1"></div>
                                     <div class="col-md-2">
                                         <form action="{{ route('keluar.destroy', $item->id) }}" method="post">
                                             @csrf
@@ -146,9 +152,9 @@
                             <td>{{ $no++ }}</td>
                             <td>{{ $item->tanggal }}</td>
                             <td>{{ $item->nomor }}</td>
-                            <td>{{ $item->tanggal }}</td>
-                            <td>{{ $item->nomor }}</td>
+                            <td>{{ $item->pengirim }}</td>
                             <td>{{ $item->perihal }}</td>
+                            <td>{{ $item->kategori }}</td>
                             <td>{{ $item->keterangan_status }}</td>
 
                             <td>
@@ -158,10 +164,13 @@
                                 <div class="row">
                                     <div class="col-md-3">
                                         <a href="{{ route('keluar.show', $item->id ) }}" class="btn btn-secondary btn-sm">View</a>
+                                    <div class="col-md-1"></div>
                                     </div>
+                                    <div class="col-md-1"></div>
                                     <div class="col-md-3">
                                         <a href="{{ route('keluar.edit', $item->id ) }}" class="btn btn-warning btn-sm">Edit</a>
                                     </div>
+                                    <div class="col-md-1"></div>
                                     <div class="col-md-2">
                                         <form action="{{ route('keluar.destroy', $item->id) }}" method="post">
                                             @csrf
@@ -177,9 +186,9 @@
                             <td>{{ $no++ }}</td>
                             <td>{{ $item->tanggal }}</td>
                             <td>{{ $item->nomor }}</td>
-                            <td>{{ $item->tanggal }}</td>
-                            <td>{{ $item->nomor }}</td>
+                            <td>{{ $item->pengirim }}</td>
                             <td>{{ $item->perihal }}</td>
+                            <td>{{ $item->kategori }}</td>
                             <td>{{ $item->keterangan_status }}</td>
 
                             <td>
@@ -190,9 +199,12 @@
                                     <div class="col-md-3">
                                         <a href="{{ route('keluar.show', $item->id ) }}" class="btn btn-secondary btn-sm">View</a>
                                     </div>
+                                    <div class="col-md-1"></div>
                                     <div class="col-md-3">
                                         <a href="{{ route('keluar.edit', $item->id ) }}" class="btn btn-warning btn-sm">Edit</a>
                                     </div>
+                                    <div class="col-md-1"></div>
+
                                     <div class="col-md-2">
                                         <form action="{{ route('keluar.destroy', $item->id) }}" method="post">
                                             @csrf

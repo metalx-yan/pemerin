@@ -45,9 +45,9 @@
                         <td>{{ $no++ }}</td>
                             <td>{{ $item->tanggal }}</td>
                             <td>{{ $item->nomor }}</td>
-                            <td>{{ $item->tanggal }}</td>
-                            <td>{{ $item->nomor }}</td>
+                            <td>{{ $item->pengirim }}</td>
                             <td>{{ $item->perihal }}</td>
+                            <td>{{ $item->kategori }}</td>
                             <td>{{ $item->keterangan_status }}</td>
                             <td>
                                 <span class="badge badge-success">Terkirim ke kasie</span>
@@ -68,15 +68,19 @@
                                     </div>
                                 </div> -->
                             </td>
+                            <td>
+                            <a href="{{ route('view.lurah', $item->id ) }}" class="btn btn-secondary btn-sm">View</a>
+
+                            </td>
                         </tr>
                         @elseif($item->status == 1)
                         <tr>
                             <td>{{ $no++ }}</td>
                             <td>{{ $item->tanggal }}</td>
                             <td>{{ $item->nomor }}</td>
-                            <td>{{ $item->tanggal }}</td>
-                            <td>{{ $item->nomor }}</td>
+                            <td>{{ $item->pengirim }}</td>
                             <td>{{ $item->perihal }}</td>
+                            <td>{{ $item->kategori }}</td>
                             <td>{{ $item->keterangan_status }}</td>
                             <td>
                                     <form action="{{ route('status.kasiemasuk', $item->id) }}" method="post">
@@ -101,6 +105,10 @@
                                         </form>
                                     </div>
                                 </div> -->
+                            </td>
+                            <td>
+                                <a href="{{ route('view.lurah', $item->id ) }}" class="btn btn-secondary btn-sm">View</a>
+
                             </td>
                         </tr>
                         @endif

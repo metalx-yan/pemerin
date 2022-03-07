@@ -81,7 +81,7 @@
                     @if (Auth::user()->role->name == 'lurah')
                     <li class="nav-small-cap">PERSONAL</li>
                          <li>
-                        <a class="" href="{{ url('/')}}" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">Beranda</span></a>
+                        <a class="" href="{{ url('/lurah')}}" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">Beranda</span></a>
                         </li>
 
                         <li>

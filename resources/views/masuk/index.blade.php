@@ -57,10 +57,12 @@
                                     <div class="col-md-3">
                                         <a href="{{ route('masuk.show', $item->id ) }}" class="btn btn-secondary btn-sm">View</a>
                                     </div>
+                                    <div class="col-md-1"></div>
                                     <div class="col-md-3">
                                         <a href="{{ route('masuk.edit', $item->id ) }}" class="btn btn-warning btn-sm">Edit</a>
                                     </div>
-                                    <div class="col-md-2">
+                                    <div class="col-md-1"></div>
+                                    <div class="col-md-3">
                                         <form action="{{ route('masuk.destroy', $item->id) }}" method="post">
                                             @csrf
                                             @method('DELETE')
@@ -93,10 +95,14 @@
                                     <div class="col-md-3">
                                         <a href="{{ route('masuk.show', $item->id ) }}" class="btn btn-secondary btn-sm">View</a>
                                     </div>
+                                                                        <div class="col-md-1"></div>
+
                                     <div class="col-md-3">
                                         <a href="{{ route('masuk.edit', $item->id ) }}" class="btn btn-warning btn-sm">Edit</a>
                                     </div>
-                                    <div class="col-md-2">
+                                                                        <div class="col-md-1"></div>
+
+                                    <div class="col-md-3">
                                         <form action="{{ route('masuk.destroy', $item->id) }}" method="post">
                                             @csrf
                                             @method('DELETE')
@@ -125,10 +131,14 @@
                                     <div class="col-md-3">
                                         <a href="{{ route('masuk.show', $item->id ) }}" class="btn btn-secondary btn-sm">View</a>
                                     </div>
+                                    <div class="col-md-1"></div>
+
                                     <div class="col-md-3">
                                         <a href="{{ route('masuk.edit', $item->id ) }}" class="btn btn-warning btn-sm">Edit</a>
                                     </div>
-                                    <div class="col-md-2">
+
+                                    <div class="col-md-1"></div>
+                                    <div class="col-md-3">
                                         <form action="{{ route('masuk.destroy', $item->id) }}" method="post">
                                             @csrf
                                             @method('DELETE')
